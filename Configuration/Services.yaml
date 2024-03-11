@@ -1,0 +1,17 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: true
+
+  Undkonsorten\HtmlMailUtility\Service\InkyServiceInterface: '@Undkonsorten\HtmlMailUtility\Service\PinkyService'
+
+  Undkonsorten\HtmlMailUtility\Service\PlainTextServiceInterface: '@Undkonsorten\HtmlMailUtility\Service\PlainTextService'
+
+  Undkonsorten\HtmlMailUtility\Service\CssInlinerServiceInterface: '@Undkonsorten\HtmlMailUtility\Service\CssInlinerService'
+
+  Undkonsorten\HtmlMailUtility\:
+    resource: '../Classes/*'
+
+  Html2Text\Html2Text:
+    class: Html2Text\Html2Text

@@ -1,0 +1,6 @@
+plugin.tx_htmlmailutility {
+    settings.html2Text {
+        do_links = {$plugin.tx_htmlmailutility.settings.html2Text.links}
+        width = {$plugin.tx_htmlmailutility.settings.html2Text.width}
+    }
+}

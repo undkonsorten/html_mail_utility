@@ -1,0 +1,32 @@
+{
+    "name": "undkonsorten/html-mail-utility",
+    "description": "Mail Utility: css inlining and plaintext",
+    "type": "typo3-cms-extension",
+    "require": {
+        "tijsverkoyen/css-to-inline-styles":"^2.2",
+        "html2text/html2text":"^4.0",
+        "lorenzo/pinky": "^1.1",
+        "typo3/cms-core": "^11.5 || ^12.4",
+        "php": "^7.4 || ^8.1"
+    },
+    "license": "GPL-2.0+",
+    "authors": [
+        {
+            "name": "Felix Althaus",
+            "email": "felix.althaus@undkonsorten.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Undkonsorten\\HtmlMailUtility\\": "Classes"
+        }
+    },
+	"extra": {
+		"typo3/cms":{
+			"extension-key": "html_mail_utility"
+		},
+		"branch-alias": {
+			"dev-main": "0.0.x-dev"
+		}
+	}
+}

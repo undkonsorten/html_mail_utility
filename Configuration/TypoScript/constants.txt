@@ -1,0 +1,10 @@
+# customsubcategory=html2Text=Html2Text library settings
+
+plugin.tx_htmlmailutility {
+    settings.html2Text {
+        # cat=plugin.tx_htmlmailutility/basic; type=options[No links=none,Show links inline=inline,Show links on next line=nextline,Show table of links after text=table,BBCode-style links=bbcode]; label=Links: set this to configure if and how links are shown.
+        links = inline
+        # cat=plugin.tx_htmlmailutility/basic; type=int; label=Width: Break lines after this many characters. Set to 0 for no (additional) breaks.
+        width = 70
+    }
+}
