@@ -6,7 +6,7 @@
         "tijsverkoyen/css-to-inline-styles":"^2.2",
         "html2text/html2text":"^4.0",
         "lorenzo/pinky": "^1.1",
-        "typo3/cms-core": "^11.5 || ^12.4",
+        "typo3/cms-core": "^11.5 || ^12.4 || ^13.3",
         "php": "^7.4 || ^8.1"
     },
     "license": "GPL-2.0+",
