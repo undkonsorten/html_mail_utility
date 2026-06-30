@@ -19,9 +19,7 @@ namespace Undkonsorten\HtmlMailUtility\Service;
 
 
 use Html2Text\Html2Text;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
-use TYPO3\CMS\Extbase\Object\ObjectManager;
 
 class PlainTextService implements PlainTextServiceInterface
 {
@@ -41,7 +39,7 @@ class PlainTextService implements PlainTextServiceInterface
         // $this->html2Text = $html2Text ?? GeneralUtility::makeInstance(Html2Text::class);
     }
 
-    public function injectHtml2Text(Html2Text $html2Text)
+    public function injectHtml2Text(Html2Text $html2Text): void
     {
         $this->html2Text = $html2Text;
     }
@@ -54,14 +52,14 @@ class PlainTextService implements PlainTextServiceInterface
     /**
      * @param ConfigurationManagerInterface $configurationManager
      */
-    public function injectConfigurationManager(ConfigurationManagerInterface $configurationManager)
+    public function injectConfigurationManager(ConfigurationManagerInterface $configurationManager): void
     {
         $this->configurationManager = $configurationManager;
         $this->settings = $configurationManager->getConfiguration(ConfigurationManagerInterface::CONFIGURATION_TYPE_SETTINGS,
             'HtmlMailUtility');
     }
 
-    public function initializeObject()
+    public function initializeObject(): void
     {
         $config = [];
         if (isset($this->settings['html2Text'])) {
@@ -83,7 +81,7 @@ class PlainTextService implements PlainTextServiceInterface
      * @param string $baseUrl
      * @return void
      */
-    public function setBaseUrl($baseUrl)
+    public function setBaseUrl($baseUrl): void
     {
         $this->html2Text->setBaseUrl($baseUrl);
     }

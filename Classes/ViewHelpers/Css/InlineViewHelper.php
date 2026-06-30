@@ -20,8 +20,6 @@ namespace Undkonsorten\HtmlMailUtility\ViewHelpers\Css;
 
 use TYPO3\CMS\Core\Resource\Exception\FileDoesNotExistException;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Object\Exception;
-use TYPO3\CMS\Extbase\Object\ObjectManager;
 use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 use TYPO3Fluid\Fluid\Core\ViewHelper\ViewHelperInterface;
@@ -37,7 +35,7 @@ class InlineViewHelper extends AbstractViewHelper implements ViewHelperInterface
 
     /**
      * @return CssInlinerServiceInterface
-     * @throws Exception
+     * @throws /Exception
      */
     static public function getCssInlinerService()
     {

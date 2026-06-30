@@ -1,11 +1,13 @@
 <?php
+
+declare(strict_types=1);
+
 /**
  * Created by PhpStorm.
  * User: felix
  * Date: 18.01.17
  * Time: 22:12
  */
-
 namespace Undkonsorten\HtmlMailUtility\Service;
 
 

@@ -28,6 +28,7 @@ use Undkonsorten\HtmlMailUtility\Service\PlainTextServiceInterface;
 class UserFunction
 {
 
+    public $cssInlinerService;
     /**
      * @var ContentObjectRenderer
      */
@@ -44,9 +45,9 @@ class UserFunction
     protected $plainTextService;
 
     public function __construct(
-        InkyServiceInterface $inkyService = null,
-        PlainTextServiceInterface $plainTextService = null,
-        CssInlinerServiceInterface $cssInlinerService = null
+        ?InkyServiceInterface $inkyService = null,
+        ?PlainTextServiceInterface $plainTextService = null,
+        ?CssInlinerServiceInterface $cssInlinerService = null
     ) {
         $this->inkyService = $inkyService ?? GeneralUtility::makeInstance(InkyServiceInterface::class);
         $this->plainTextService = $plainTextService ?? GeneralUtility::makeInstance(PlainTextServiceInterface::class);
@@ -59,7 +60,7 @@ class UserFunction
      * @return string
      * @throws Exception
      */
-    public function inlineCss(string $content, array $configuration = null): string
+    public function inlineCss(string $content, ?array $configuration = null): string
     {
         $css = null;
         if (isset($configuration['css']) && isset($configuration['css.'])) {

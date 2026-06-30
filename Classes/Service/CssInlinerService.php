@@ -29,9 +29,9 @@ class CssInlinerService implements CssInlinerServiceInterface
      */
     protected $cssToInlineStyles;
 
-    public function __construct(CssToInlineStyles $cssToInlineStyles = null)
+    public function __construct(?CssToInlineStyles $cssToInlineStyles = null)
     {
-        if ($cssToInlineStyles === null) {
+        if (!$cssToInlineStyles instanceof CssToInlineStyles) {
             $cssToInlineStyles = GeneralUtility::makeInstance(CssToInlineStyles::class);
         }
         $this->cssToInlineStyles = $cssToInlineStyles;

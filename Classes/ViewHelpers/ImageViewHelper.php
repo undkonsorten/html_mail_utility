@@ -41,19 +41,19 @@ class ImageViewHelper extends AbstractTagBasedViewHelper
     /**
      * @param ImageService $imageService
      */
-    public function injectImageService(ImageService $imageService)
+    public function injectImageService(ImageService $imageService): void
     {
         $this->imageService = $imageService;
     }
 
+    #[\Override]
     public function initializeArguments(): void
     {
         parent::initializeArguments();
-        $this->registerUniversalTagAttributes();
-        $this->registerTagAttribute('alt', 'string', 'Specifies an alternate text for an image', false);
-        $this->registerTagAttribute('ismap', 'string', 'Specifies an image as a server-side image-map. Rarely used. Look at usemap instead', false);
-        $this->registerTagAttribute('longdesc', 'string', 'Specifies the URL to a document that contains a long description of an image', false);
-        $this->registerTagAttribute('usemap', 'string', 'Specifies an image as a client-side image-map', false);
+        $this->registerArgument('alt', 'string', 'Specifies an alternate text for an image', false);
+        $this->registerArgument('ismap', 'string', 'Specifies an image as a server-side image-map. Rarely used. Look at usemap instead', false);
+        $this->registerArgument('longdesc', 'string', 'Specifies the URL to a document that contains a long description of an image', false);
+        $this->registerArgument('usemap', 'string', 'Specifies an image as a client-side image-map', false);
         $this->registerArgument('src', 'string', 'a path to a file, a combined FAL identifier or an uid (int). If $treatIdAsReference is set, the integer is considered the uid of the sys_file_reference record. If you already got a FAL object, consider using the $image parameter instead', false, '');
         $this->registerArgument('image', FileInterface::class, 'a FAL object', false, null);
         $this->registerArgument('width', 'string',
@@ -81,6 +81,7 @@ class ImageViewHelper extends AbstractTagBasedViewHelper
      * @throws Exception
      * @return string Rendered tag
      */
+    #[\Override]
     public function render(): string
     {
         if ((is_null($this->arguments['src']) && is_null($this->arguments['image'])) || ($this->arguments['src'] === '' && !isset($this->arguments['image']))) {
@@ -127,16 +128,16 @@ class ImageViewHelper extends AbstractTagBasedViewHelper
             if (empty($this->arguments['alt'])) {
                 $this->tag->addAttribute('alt', $alt);
             }
-            if (empty($this->arguments['title']) && $title) {
+            if (empty($this->additionalArguments['title']) && $title) {
                 $this->tag->addAttribute('title', $title);
             }
-        } catch (ResourceDoesNotExistException $e) {
+        } catch (ResourceDoesNotExistException) {
             // thrown if file does not exist
-        } catch (\UnexpectedValueException $e) {
+        } catch (\UnexpectedValueException) {
             // thrown if a file has been replaced with a folder
-        } catch (\RuntimeException $e) {
+        } catch (\RuntimeException) {
             // RuntimeException thrown if a file is outside of a storage
-        } catch (\InvalidArgumentException $e) {
+        } catch (\InvalidArgumentException) {
             // thrown if file storage does not exist
         }
 
