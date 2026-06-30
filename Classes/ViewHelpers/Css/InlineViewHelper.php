@@ -47,7 +47,7 @@ class InlineViewHelper extends AbstractViewHelper implements ViewHelperInterface
         return static::$cssInlinerService;
     }
 
-    public function initializeArguments()
+    public function initializeArguments(): void
     {
         $this->registerArgument('html', 'string', 'HTML markup for inlining');
         $this->registerArgument('css', 'string', 'additional CSS');

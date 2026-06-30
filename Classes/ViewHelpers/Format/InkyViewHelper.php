@@ -41,7 +41,7 @@ class InkyViewHelper extends AbstractViewHelper implements ViewHelperInterface
         return static::$inkyService;
     }
 
-    public function initializeArguments()
+    public function initializeArguments(): void
     {
         $this->registerArgument('markup', 'string', 'Inky markup that will be transformed to stone-age HTML');
         $this->registerArgument('gridColumns', 'int', 'Column count to use for grid calculations', false, 12);

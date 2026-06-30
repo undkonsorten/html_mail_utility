@@ -45,7 +45,7 @@ class PlainTextViewHelper extends AbstractViewHelper implements ViewHelperInterf
     }
 
 
-    public function initializeArguments()
+    public function initializeArguments(): void
     {
         $this->registerArgument('html', 'string', 'HTML markup for inlining');
         $this->registerArgument('baseUrl', 'string', 'Base URL for relative links');

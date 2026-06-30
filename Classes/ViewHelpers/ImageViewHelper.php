@@ -46,7 +46,7 @@ class ImageViewHelper extends AbstractTagBasedViewHelper
         $this->imageService = $imageService;
     }
 
-    public function initializeArguments()
+    public function initializeArguments(): void
     {
         parent::initializeArguments();
         $this->registerUniversalTagAttributes();
@@ -81,7 +81,7 @@ class ImageViewHelper extends AbstractTagBasedViewHelper
      * @throws Exception
      * @return string Rendered tag
      */
-    public function render()
+    public function render(): string
     {
         if ((is_null($this->arguments['src']) && is_null($this->arguments['image'])) || ($this->arguments['src'] === '' && !isset($this->arguments['image']))) {
             throw new Exception('You must either specify a string src or a File object.xx', 1382284106);
