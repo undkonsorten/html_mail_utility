@@ -18,7 +18,6 @@
 namespace Undkonsorten\HtmlMailUtility\StdWrap;
 
 
-use TYPO3\CMS\Extbase\Object\Exception;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use Undkonsorten\HtmlMailUtility\Service\CssInlinerServiceInterface;
@@ -58,7 +57,6 @@ class UserFunction
      * @param string $content
      * @param array $configuration
      * @return string
-     * @throws Exception
      */
     public function inlineCss(string $content, ?array $configuration = null): string
     {
